@@ -295,7 +295,7 @@ h1.header-line,
 
 .post .feature-image{
 	overflow: hidden;
-	width: 584px;
+	width: 600px;
 	height: 300px;
 	padding: 5px;
 	margin-bottom: 21px;
@@ -303,12 +303,13 @@ h1.header-line,
 	-webkit-box-shadow: 0px 0px 3px #999;     
 	-moz-box-shadow: 0px 0px 3px #999;  
 	box-shadow: 0 0 3px #000;
+	margin-left: -10px;
 }
 
 .post .feature-image a{
 	display: block;
 	overflow: hidden;
-	width: 584px;
+	width: 600px;
 	height: 300px;
 }
 
@@ -326,7 +327,7 @@ h1.header-line,
 	overflow: hidden;
 	float: left;
 	width: 272px;
-	height: 272px;
+	height: 250px;
 	padding: 5px;
 	margin-bottom: 10px;
 	background: #fff;
@@ -339,7 +340,7 @@ h1.header-line,
 	display: block;
 	overflow: hidden;
 	width: 272px;
-	height: 272px;
+	height: 250px;
 }
 
 .post.compact .the-excerpt{
@@ -347,6 +348,7 @@ h1.header-line,
 	width: 280px;
 	margin-left: 30px;
 }
+
 
 .post.compact .the-excerpt .link-button{ margin-top: 21px; }
 
@@ -576,6 +578,7 @@ h1.header-line,
 
 .feature-blocks li .the-excerpt{
 	margin-bottom: 15px;
+	height: 50px;
 }
 
 /* HOME TABS BLOCKS ---------------------------------------------------------*/
@@ -648,7 +651,7 @@ h1.header-line,
 	display: block;
 	overflow: hidden;
 	width: 654px;
-	margin-left: -15px;
+	margin-left: -30px;
 	padding-top: 5px;
 }
 
@@ -658,8 +661,8 @@ h1.header-line,
 	margin: 15px 15px 15px 15px;
 	float: left;
 	background: #fff;
-	width: 272px;
-	height: 250px;
+	width: 600px;
+	height: 300px;
 	padding: 5px;
 	-webkit-box-shadow: 0px 0px 3px #999;     
 	-moz-box-shadow: 0px 0px 3px #999;  
@@ -674,8 +677,8 @@ h1.header-line,
 .gallery-thumbs li .boxgrid{
 	display: block;
 	position: relative;
-	width: 272px;
-	height: 250px;
+	width: 600px;
+	height: 300px;
 	float:left;
 	background:#fff;
 	overflow: hidden;
@@ -758,26 +761,6 @@ h1.header-line,
 .pager li:hover,
 .pager li.active{
 	background-position: -58px -44px;
-}
-
-.pager li:first-child{
-	background-position: 0px 0px;
-	width: 51px;
-	text-indent: -9000px;
-}
-
-.pager li:last-child{
-	background-position: -97px 0px;
-	width: 51px;
-	text-indent: -9000px;
-}
-
-.pager li:first-child:hover{
-	background-position: 0px -44px;
-}
-
-.pager li:last-child:hover{
-	background-position: -97px -44px;
 }
 
 

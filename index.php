@@ -1,2 +1,3 @@
 <?php
-header("Location: public/index.html");
+header("Location: public/index.php");
+die;

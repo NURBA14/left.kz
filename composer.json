@@ -1,6 +1,9 @@
 {
     "require": {},
     "autoload": {
-        "psr-4": {}
+        "psr-4": {
+            "core\\": "vendor/core",
+            "app\\": "app"
+        }
     }
 }
