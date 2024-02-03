@@ -358,6 +358,21 @@ h1.header-line,
 
 /* BLOG - SINGLE -------------------------------------------------------*/
 
+.theme-btn{
+	margin-top: 300px;
+	margin-left: 33px;
+	background-color: white;
+	color: black;
+	border: 5px solid grey;
+	border-radius: 10px;
+	font-size: 25px;
+}
+
+.theme-btn:hover{
+	background-color: grey;
+	color: white;
+}
+
 .post.single{
 	background: none;
 	padding-bottom: 30px;
@@ -371,6 +386,17 @@ h1.header-line,
 
 .post.single.portfolio{
 	padding-bottom: 0px;
+}
+
+.delete {
+	border-radius: 6px;
+	font-size: 18px;
+	background-color: darkgray;
+	color: black;
+}
+.delete:hover{
+	background-color: darkred;
+	color: white;
 }
 
 /* BLOG - COMMENTS ------------------------------------------------------*/

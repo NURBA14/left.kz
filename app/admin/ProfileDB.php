@@ -32,7 +32,8 @@ class ProfileDB extends Database
             return ($data);
         }
     }
-    public function selectUserInfo($id){
+    public function selectUserInfo($id)
+    {
         $select = "SELECT 
             `id`, 
             `login` 
@@ -47,6 +48,21 @@ class ProfileDB extends Database
         if (isset($data)) {
             return ($data);
         }
+    }
+
+    public function deletePost($id)
+    {
+        $delete = "DELETE FROM `posts` WHERE id = {$id};";
+        $result = $this->db->query($delete);
+        return $result;
+    }
+
+    public function selectPostCount($id)
+    {
+        $select = "SELECT COUNT(id) as `posts` FROM `posts` WHERE `author_id` = {$id};";
+        $result = $this->db->query($select);
+        $data = $result->fetch_assoc();
+        return $data;
     }
 
 }
