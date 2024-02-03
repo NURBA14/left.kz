@@ -1,5 +1,6 @@
 <?php
 use app\SingleDB;
+
 header("Content-Type: text/html; charset=UTF-8");
 require_once("../vendor/autoload.php");
 $db = new SingleDB("localhost", "root", "", "left.kz");
@@ -34,7 +35,7 @@ if (isset($_POST["send"])) {
 	<title>LEFT</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/social-icons.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="skins/paper-brown/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="skins/carbon/style.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" src="js/jqueryui.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
@@ -75,20 +76,9 @@ if (isset($_POST["send"])) {
 			<a href="index.php"><img src="img/logo.png" alt="Left template" id="logo" /></a>
 			<ul id="nav" class="sf-menu sf-vertical">
 				<li><a href="index.php">HOME</a></li>
-				<li class="current-menu-item"><a href="blog-compact.php">BLOG</a></li>
-				<li><a href="gallery.php">GALLERY</a></li>
-				<li><a href="contact.php">CONTACT</a></li>
-			</ul>
-			<br><br><br><br><br><br><br><br><br><br><br>
-			<ul class="social">
-				<li>
-					<h6>Follow me</h6>
-				<li><a href="http://www.facebook.com" class="facebook" title="Become a fan"></a></li>
-				<li><a href="http://www.twitter.com" class="twitter" title="Follow our tweets"></a></li>
-				<li><a href="http://www.dribbble.com" class="dribbble" title="View our work"></a></li>
-				<li><a href="http://www.addthis.com" class="addthis" title="Tell everybody"></a></li>
-				<li><a href="http://www.vimeo.com" class="vimeo" title="View our videos"></a></li>
-				<li><a href="http://www.youtube.com" class="youtube" title="View our videos"></a></li>
+				<li class="current-menu-item"><a href="<?= $_SERVER["PHP_SELF"] ?>">BLOG</a></li>
+				<li><a href="..\admin\public\main.php">NEW PUBLICATION</a></li>
+				<li><a href="..\admin\public\Profile.php"> PROFILE</a></li>
 			</ul>
 		</div>
 

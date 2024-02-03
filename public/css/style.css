@@ -342,6 +342,10 @@ h1.header-line,
 	width: 272px;
 	height: 250px;
 }
+.post.compact .feature-image img{
+	width: 272px;
+	height: 250px;
+}
 
 .post.compact .the-excerpt{
 	float: left;
@@ -358,6 +362,11 @@ h1.header-line,
 	background: none;
 	padding-bottom: 30px;
 	margin-top: 20px;
+}
+
+.post.single .feature-image img{
+	width: 600px;
+	height: 300px;
 }
 
 .post.single.portfolio{
@@ -579,6 +588,11 @@ h1.header-line,
 .feature-blocks li .the-excerpt{
 	margin-bottom: 15px;
 	height: 50px;
+}
+
+.feature-blocks .block .cover{
+	width: 272px;
+	height: 250px;
 }
 
 /* HOME TABS BLOCKS ---------------------------------------------------------*/

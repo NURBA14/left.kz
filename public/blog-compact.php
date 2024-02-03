@@ -1,5 +1,6 @@
 <?php
 use app\BlogDB;
+use core\Funcs;
 
 header("Content-Type: text/html; charser=UTF-8");
 require("../vendor/autoload.php");
@@ -15,6 +16,7 @@ if (isset($_GET["page"]) and $_GET["page"] > 1) {
 }
 $page_count = ceil(($num_rows["rows"]) / 4);
 $data = $db->selectBlog($off);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +26,7 @@ $data = $db->selectBlog($off);
 	<title>LEFT</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/social-icons.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="skins/paper-brown/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="skins/carbon/style.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" src="js/jqueryui.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
@@ -65,20 +67,9 @@ $data = $db->selectBlog($off);
 			<a href="index.php"><img src="img/logo.png" alt="Left template" id="logo" /></a>
 			<ul id="nav" class="sf-menu sf-vertical">
 				<li><a href="index.php">HOME</a></li>
-				<li class="current-menu-item"><a href="blog-compact.php">BLOG</a></li>
-				<li><a href="gallery.php">GALLERY</a></li>
-				<li><a href="contact.php">CONTACT</a></li>
-			</ul>
-			<br><br><br><br><br><br><br><br><br><br><br>
-			<ul class="social">
-				<li>
-					<h6>Follow me</h6>
-				<li><a href="http://www.facebook.com" class="facebook" title="Become a fan"></a></li>
-				<li><a href="http://www.twitter.com" class="twitter" title="Follow our tweets"></a></li>
-				<li><a href="http://www.dribbble.com" class="dribbble" title="View our work"></a></li>
-				<li><a href="http://www.addthis.com" class="addthis" title="Tell everybody"></a></li>
-				<li><a href="http://www.vimeo.com" class="vimeo" title="View our videos"></a></li>
-				<li><a href="http://www.youtube.com" class="youtube" title="View our videos"></a></li>
+				<li class="current-menu-item"><a href="<?= $_SERVER["PHP_SELF"]; ?>">BLOG</a></li>
+				<li><a href="..\admin\public\main.php">NEW PUBLICATION</a></li>
+				<li><a href="..\admin\public\Profile.php"> PROFILE</a></li>
 			</ul>
 		</div>
 
@@ -98,8 +89,8 @@ $data = $db->selectBlog($off);
 						<? foreach ($data as $key => $item): ?>
 							<div class="post compact">
 								<div class="feature-image">
-									<a href="single.php?post_id=<?= $item["id"]; ?>"><img src="<?= $item["img_272-250"]; ?>"
-											alt="Feature image" /></a>
+									<a href="single.php?post_id=<?= $item["id"]; ?>"><img class="img-cover"
+											src="<?= $item["img_272-250"]; ?>" alt="Feature image" /></a>
 								</div>
 								<div class="the-excerpt">
 									<h6><a href="single.php?post_id=<?= $item["id"]; ?>">
