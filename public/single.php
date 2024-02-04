@@ -6,6 +6,7 @@ require_once("../vendor/autoload.php");
 require_once("skins/theme.php");
 $db = new SingleDB("localhost", "root", "", "left.kz");
 $ids = $db->selectId($_GET["post_id"]);
+
 if (!isset($_GET["post_id"])) {
 	header("Location: blog-compact.php");
 	die;
@@ -16,10 +17,6 @@ if (!isset($_GET["post_id"])) {
 		header("Location: blog-compact.php");
 		die;
 	}
-}
-
-if (!isset($_COOKIE["theme"])) {
-	setcookie("theme", "light", time() + 3600 * 24 * 365, "/", "{$_SERVER["HTTP_HOST"]}", false, true);
 }
 
 $comments = $db->selectComments($_GET["post_id"]);
@@ -53,6 +50,7 @@ if (isset($_POST["send"])) {
 
 <body>
 	<div id="wrapper">
+		
 		<div id="sidebar">
 			<a href="index.php"><img src="img/logo.png" alt="Left template" id="logo" /></a>
 			<ul id="nav" class="sf-menu sf-vertical">
@@ -63,6 +61,7 @@ if (isset($_POST["send"])) {
 			</ul>
 			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light"><button class="theme-btn" type="button">Light</button></a>
 			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=dark"><button class="theme-btn" type="button">dark</button></a>
+			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light-blue"><button class="theme-btn" type="button">light-blue</button></a>
 		</div>
 
 		<div id="main">
@@ -147,7 +146,6 @@ if (isset($_POST["send"])) {
 
 					<div class="leave-comment">
 						<h3>LEAVE A COMMENT</h3>
-
 						<form action="#" method="post" id="commentform">
 							<fieldset>
 								<div>
@@ -168,8 +166,6 @@ if (isset($_POST["send"])) {
 				</div>
 			</div>
 		</div>
-
 	</div>
 </body>
-
 </html>

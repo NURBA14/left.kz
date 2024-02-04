@@ -50,6 +50,7 @@ if (isset($_POST["send"]) and isset($_FILES["img_600"]) and isset($_FILES["img_2
 
 <body>
     <div id="wrapper">
+        
         <div id="sidebar">
             <a href="../index.php"><img src="../img/logo.png" alt="Left template" id="logo" /></a>
             <ul id="nav" class="sf-menu sf-vertical">
@@ -60,8 +61,11 @@ if (isset($_POST["send"]) and isset($_FILES["img_600"]) and isset($_FILES["img_2
             </ul>
             <a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light"><button class="theme-btn" type="button">Light</button></a>
 			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=dark"><button class="theme-btn" type="button">dark</button></a>
+			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light-blue"><button class="theme-btn" type="button">light-blue</button></a>
         </div>
+        
         <div id="main">
+            
             <div id="header">
                 <div id="page-title">NEW PUBLICATION</div>
                 <div id="breadcrumbs">

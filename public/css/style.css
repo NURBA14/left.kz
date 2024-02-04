@@ -359,13 +359,13 @@ h1.header-line,
 /* BLOG - SINGLE -------------------------------------------------------*/
 
 .theme-btn{
-	margin-top: 300px;
-	margin-left: 33px;
+	margin-top: 310px;
+	margin-left: 8px;
 	background-color: white;
 	color: black;
 	border: 5px solid grey;
 	border-radius: 10px;
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .theme-btn:hover{

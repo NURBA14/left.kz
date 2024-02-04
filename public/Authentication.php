@@ -4,12 +4,10 @@ require_once("..\\vendor\autoload.php");
 require_once("skins/theme.php");
 session_start();
 
-
 if (isset($_SESSION["user_data"])) {
     header("Location: privacy/main.php");
     die;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +29,7 @@ if (isset($_SESSION["user_data"])) {
 
 <body>
     <div id="wrapper">
+        
         <div id="sidebar">
             <a href="index.php"><img src="img/logo.png" alt="Left template" id="logo" /></a>
             <ul id="nav" class="sf-menu sf-vertical">
@@ -41,6 +40,7 @@ if (isset($_SESSION["user_data"])) {
             </ul>
             <a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light"><button class="theme-btn" type="button">Light</button></a>
 			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=dark"><button class="theme-btn" type="button">dark</button></a>
+			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light-blue"><button class="theme-btn" type="button">light-blue</button></a>
         </div>
 
         <div id="main">
@@ -54,6 +54,7 @@ if (isset($_SESSION["user_data"])) {
             <br>
             <div id="content">
                 <div id="page-content">
+                    
                     <h1>Authentication</h1>
                     <br>
                     <div class="form-panel">

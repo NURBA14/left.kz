@@ -53,7 +53,9 @@ class ProfileDB extends Database
     public function deletePost($id)
     {
         $delete = "DELETE FROM `posts` WHERE id = {$id};";
+        $delete_comments = "DELETE FROM `user_comment` WHERE `post_id` = {$id};";
         $result = $this->db->query($delete);
+        $result = $this->db->query($delete_comments);
         return $result;
     }
 

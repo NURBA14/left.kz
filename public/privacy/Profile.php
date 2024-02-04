@@ -50,6 +50,7 @@ $user_info = $db->selectUserInfo($_SESSION["user_data"]["id"]);
 
 <body>
     <div id="wrapper">
+        
         <div id="sidebar">
             <a href="../index.php"><img src="../img/logo.png" alt="Left template" id="logo" /></a>
             <ul id="nav" class="sf-menu sf-vertical">
@@ -60,7 +61,9 @@ $user_info = $db->selectUserInfo($_SESSION["user_data"]["id"]);
             </ul>
             <a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light"><button class="theme-btn" type="button">Light</button></a>
             <a href="<?= $_SERVER["PHP_SELF"] ?>?theme=dark"><button class="theme-btn" type="button">dark</button></a>
+			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light-blue"><button class="theme-btn" type="button">light-blue</button></a>
         </div>
+        
         <div id="main">
             <div id="header">
                 <div id="page-title">PROFILE</div>
@@ -83,8 +86,7 @@ $user_info = $db->selectUserInfo($_SESSION["user_data"]["id"]);
                                     <br>
                                     <a href="<?= $_SERVER["PHP_SELF"]; ?>?do=exit"><button class="delete"
                                             type="button">Logout</button></a>
-                                </h1>
-                                <br>
+                                </h1><br>
                                 <h6>
                                     Posts:
                                     <?= $post_count["posts"]; ?>
@@ -102,14 +104,14 @@ $user_info = $db->selectUserInfo($_SESSION["user_data"]["id"]);
                                 </div>
                                 <div class="the-excerpt">
                                     <h6><a href="../single.php?post_id=<?= $item["id"]; ?>">
-                                            <?= $item["header"]; ?>
+                                            <?= htmlspecialchars($item["header"]); ?>
                                         </a></h6>
                                     <ul class="meta">
                                         <li> on
                                             <?= $item["date"]; ?>&nbsp;
                                         </li>
                                     </ul>
-                                    <?= $item["mini_description"]; ?>
+                                    <?= nl2br(htmlspecialchars($item["mini_description"])); ?>
                                     <a href="../single.php?post_id=<?= $item["id"]; ?>" class="link-button"><span>Read
                                             more</span></a>
                                     <br>
@@ -123,9 +125,7 @@ $user_info = $db->selectUserInfo($_SESSION["user_data"]["id"]);
 
                 </div>
             </div>
-
         </div>
     </div>
 </body>
-
 </html>

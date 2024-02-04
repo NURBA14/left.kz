@@ -39,6 +39,7 @@ $data = $db->selectBlog($off);
 
 <body>
 	<div id="wrapper">
+		
 		<div id="sidebar">
 			<a href="index.php"><img src="img/logo.png" alt="Left template" id="logo" /></a>
 			<ul id="nav" class="sf-menu sf-vertical">
@@ -49,6 +50,7 @@ $data = $db->selectBlog($off);
 			</ul>
 			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light"><button class="theme-btn" type="button">Light</button></a>
 			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=dark"><button class="theme-btn" type="button">dark</button></a>
+			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light-blue"><button class="theme-btn" type="button">light-blue</button></a>
 		</div>
 
 		<div id="main">
@@ -72,17 +74,17 @@ $data = $db->selectBlog($off);
 								</div>
 								<div class="the-excerpt">
 									<h6><a href="single.php?post_id=<?= $item["id"]; ?>">
-											<?= $item["header"]; ?>
+											<?= htmlspecialchars($item["header"]); ?>
 										</a></h6>
 									<ul class="meta">
 										<li>By <a href="#">
-												<?= $item["login"]; ?>
+												<?= htmlspecialchars($item["login"]); ?>
 											</a>&nbsp;</li>
 										<li> on
 											<?= $item["date"]; ?>&nbsp;
 										</li>
 									</ul>
-									<?= $item["mini_description"]; ?>
+									<?= nl2br(htmlspecialchars($item["mini_description"])); ?>
 									<a href="single.php?post_id=<?= $item["id"] ?>" class="link-button"><span>Read
 											more</span></a>
 								</div>
@@ -100,6 +102,7 @@ $data = $db->selectBlog($off);
 							<? endfor; ?>
 						</ul>
 					<? endif; ?>
+
 				</div>
 			</div>
 		</div>

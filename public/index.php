@@ -27,6 +27,7 @@ $data = $db->selectPost();
 
 <body>
 	<div id="wrapper">
+		
 		<div id="sidebar">
 			<a href="index.php"><img src="img/logo.png" alt="Left template" id="logo" /></a>
 			<ul id="nav" class="sf-menu sf-vertical">
@@ -37,13 +38,15 @@ $data = $db->selectPost();
 			</ul>
 			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light"><button class="theme-btn" type="button">Light</button></a>
 			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=dark"><button class="theme-btn" type="button">dark</button></a>
+			<a href="<?= $_SERVER["PHP_SELF"] ?>?theme=light-blue"><button class="theme-btn" type="button">light-blue</button></a>
 		</div>
 
 		<div id="main">
 			<div id="content">
-				<div id="page-content">
-					<br>
+				<div id="page-content"><br>
+					
 					<h1 class="header-line">RECENT PUBLICATION</h1>
+					
 					<ul class="feature-blocks">
 						<? if (isset($data)): ?>
 							<? foreach ($data as $key => $item): ?>
@@ -59,10 +62,11 @@ $data = $db->selectPost();
 							<? endforeach; ?>
 						<? endif; ?>
 					</ul>
+
 				</div>
 			</div>
 		</div>
+	
 	</div>
 </body>
-
 </html>
