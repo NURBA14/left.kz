@@ -1,11 +1,11 @@
 <?php
-use app\admin\LoginDB;
+use app\privacy\LoginDB;
 
 require_once("..\\vendor\autoload.php");
 session_start();
 
 if (isset($_SESSION["user_data"])) {
-    header("Location: privacy/main.php");
+    header("Location: ../public/privacy/main.php");
     die;
 }
 
@@ -19,7 +19,7 @@ if (isset($_COOKIE["login"]) and isset($_COOKIE["password"]) and isset($_COOKIE[
             "password" => "{$_COOKIE["password"]}",
             "id" => "{$_COOKIE["id"]}"
         ];
-        header("Location: privacy/main.php");
+        header("Location: ../public/privacy/main.php");
         die;
     } else {
         session_destroy();
@@ -27,7 +27,7 @@ if (isset($_COOKIE["login"]) and isset($_COOKIE["password"]) and isset($_COOKIE[
         setcookie("password", "", time() - 0, "/", "{$_SERVER["HTTP_HOST"]}", false, true);
         setcookie("email", "", time() - 0, "/", "{$_SERVER["HTTP_HOST"]}", false, true);
         setcookie("id", "", time() - 0, "/", "{$_SERVER["HTTP_HOST"]}", false, true);
-        header("Location: Authentication.php");
+        header("Location: ../public/Authentication.php");
         die;
     }
 } elseif (!empty($_POST["login"])) {
@@ -45,14 +45,14 @@ if (isset($_COOKIE["login"]) and isset($_COOKIE["password"]) and isset($_COOKIE[
                 "id" => "{$row["id"]}"
             ];
         }
-        header("Location: privacy/main.php");
+        header("Location: ../public/privacy/main.php");
         die;
     } elseif ($result->num_rows === 0) {
         $_SESSION["res"] = "Incorect login";
-        header("Location: Authentication.php");
+        header("Location: ../public/Authentication.php");
         die;
     }
 } else {
-    header("Location: Authentication.php");
+    header("Location: ../public/Authentication.php");
     die;
 }

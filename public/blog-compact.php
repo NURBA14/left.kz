@@ -1,23 +1,8 @@
 <?php
-use app\BlogDB;
-
 header("Content-Type: text/html; charser=UTF-8");
-require("../vendor/autoload.php");
-require_once("skins/theme.php");
-
-$db = new BlogDB("localhost", "root", "", "left.kz");
-$num_rows = $db->selectNumRows("posts");
-$off = 0;
-if (isset($_GET["page"]) and $_GET["page"] > 1) {
-	for ($i = 1; $i < $_GET["page"]; $i++) {
-		$off += 4;
-	}
-} elseif (isset($_GET["page"]) and $_GET["page"] == 1) {
-	$off = 0;
-}
-$page_count = ceil(($num_rows["rows"]) / 4);
-$data = $db->selectBlog($off);
-
+require_once("../vendor/autoload.php");
+require_once("../controller/theme.php");
+require_once("../controller/blog.php");
 ?>
 <!DOCTYPE html>
 <html>

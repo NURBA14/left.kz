@@ -1,8 +1,8 @@
 <?php
 header("Content-Type: text/html; charset=UTF-8");
-require_once("..\\vendor\autoload.php");
-require_once("skins/theme.php");
 session_start();
+require_once("..\\vendor\autoload.php");
+require_once("../controller/theme.php");
 
 if (isset($_SESSION["user_data"])) {
     header("Location: privacy/main.php");
@@ -58,7 +58,7 @@ if (isset($_SESSION["user_data"])) {
                     <h1>Authentication</h1>
                     <br>
                     <div class="form-panel">
-                        <form id="contactForm" action="login.php" method="post">
+                        <form id="contactForm" action="../controller/login.php" method="post">
                             <input type="text" name="login" placeholder="login" required>
                             <br><br>
                             <input type="password" name="password" placeholder="password" required>

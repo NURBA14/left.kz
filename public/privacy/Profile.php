@@ -1,34 +1,9 @@
 <?php
-use app\admin\ProfileDB;
-
 header("Content-Type: text/html; charset=UTF-8");
-require_once("../../vendor\autoload.php");
-require_once("../skins/theme.php");
 session_start();
-
-if (isset($_GET["do"]) and $_GET["do"] == "exit") {
-    session_destroy();
-    setcookie("login", "", time() - 0, "/", "{$_SERVER["HTTP_HOST"]}", false, true);
-    setcookie("password", "", time() - 0, "/", "{$_SERVER["HTTP_HOST"]}", false, true);
-    setcookie("email", "", time() - 0, "/", "{$_SERVER["HTTP_HOST"]}", false, true);
-    setcookie("id", "", time() - 0, "/", "{$_SERVER["HTTP_HOST"]}", false, true);
-    header("Location: ../login.php");
-    die;
-} elseif (!isset($_SESSION["user_data"])) {
-    header("Location: ../login.php");
-    die;
-}
-$db = new ProfileDB("localhost", "root", "", "left.kz");
-if (isset($_GET["delete"])) {
-    $result = $db->deletePost($_GET["delete"]);
-    header("Location: {$_SERVER["PHP_SELF"]}");
-    die;
-}
-
-$post_count = $db->selectPostCount($_SESSION["user_data"]["id"]);
-$data = $db->selectUserPosts($_SESSION["user_data"]["id"]);
-$user_info = $db->selectUserInfo($_SESSION["user_data"]["id"]);
-
+require_once("../../vendor\autoload.php");
+require_once("../../controller/theme.php");
+require_once("../../controller/privacy/profile.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

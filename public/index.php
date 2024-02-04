@@ -2,8 +2,8 @@
 use app\HomeDB;
 
 header("Content-Type: text/html; charset=UTF-8");
-require("../vendor/autoload.php");
-require_once("skins/theme.php");
+require_once("../vendor/autoload.php");
+require_once("../controller/theme.php");
 $db = new HomeDB("localhost", "root", "", "left.kz");
 $data = $db->selectPost();
 ?>

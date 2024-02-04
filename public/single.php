@@ -1,34 +1,8 @@
 <?php
-use app\SingleDB;
-
 header("Content-Type: text/html; charset=UTF-8");
 require_once("../vendor/autoload.php");
-require_once("skins/theme.php");
-$db = new SingleDB("localhost", "root", "", "left.kz");
-$ids = $db->selectId($_GET["post_id"]);
-
-if (!isset($_GET["post_id"])) {
-	header("Location: blog-compact.php");
-	die;
-} elseif (isset($_GET["post_id"]) and $_GET["post_id"] >= 0) {
-	if (isset($ids)) {
-		$data = $db->selectOnePost($_GET["post_id"]);
-	} else {
-		header("Location: blog-compact.php");
-		die;
-	}
-}
-
-$comments = $db->selectComments($_GET["post_id"]);
-if (isset($_POST["send"])) {
-	$result = $db->insertComment(
-		"{$_GET["post_id"]}",
-		"{$_POST["name"]}",
-		"{$_POST["text"]}"
-	);
-	header("Location: single.php?post_id={$_GET["post_id"]}");
-	die;
-}
+require_once("../controller/theme.php");
+require_once("../controller/single.php");
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,34 +1,9 @@
 <?php
-use app\admin\NewPost;
-
 header("Content-Type: text/html; charset=UTF-8");
-require_once("../../vendor\autoload.php");
-require_once("../skins/theme.php");
 session_start();
-if (!isset($_SESSION["user_data"])) {
-    header("Location: ../login.php");
-    die;
-}
-$db = new NewPost("localhost", "root", "", "left.kz");
-if (isset($_POST["send"]) and isset($_FILES["img_600"]) and isset($_FILES["img_272"])) {
-    $result = $db->insertPost(
-        "{$_SESSION["user_data"]["id"]}",
-        "{$_POST["header"]}",
-        "{$_POST["mini_des"]}",
-        "{$_POST["full_des"]}",
-        "../data/img_600/{$_FILES["img_600"]["name"]}",
-        "../data/img_272/{$_FILES["img_272"]["name"]}"
-    );
-    move_uploaded_file($_FILES["img_600"]["tmp_name"], "../../data/img_600/" . $_FILES["img_600"]["name"]);
-    move_uploaded_file($_FILES["img_272"]["tmp_name"], "../../data/img_272/" . $_FILES["img_272"]["name"]);
-    if ($result) {
-        $_SESSION["res"] = "The post is published";
-    } else {
-        $_SESSION["res"] = "The post has not been published";
-    }
-    header("location: {$_SERVER["PHP_SELF"]}");
-    die;
-}
+require_once("../../vendor\autoload.php");
+require_once("../../controller/theme.php");
+require_once("../../controller/privacy/main.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

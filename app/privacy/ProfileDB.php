@@ -1,5 +1,5 @@
 <?php
-namespace app\admin;
+namespace app\privacy;
 
 use core\Database;
 
